@@ -1,3 +1,4 @@
+mv ~/Downloads/*.torrent ~/t/
 full_path=$(readlink -f $@)/
 for i in $(ls $full_path); do
     tp=$full_path$i
