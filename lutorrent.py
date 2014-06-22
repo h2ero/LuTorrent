@@ -55,9 +55,24 @@ def multi_file(info):
 def short_and_random(item):
     # the file is the last one of a path list
     dot_index = item['path'][-1].rfind(".")
+
+    name = item['path'][-1][:dot_index-1].decode('utf8', 'ignore')
+    reversedName = name[::-1]
+    badWord = {
+            "码":"ma ",
+            "妻":"qi ",
+            "性":"sx ",
+            "骚":"sao ",
+            "色中色":"sis ",
+            "爱":"love ",
+    }
+    for i in badWord:
+        reversedName = reversedName.replace(i.decode('utf8'), badWord[i].decode('utf8'));
+    reversedName = reversedName.encode('utf8')
+    print reversedName
     if dot_index != -1:
         # no more folder just file
-        return [random_string() + item['path'][-1][dot_index:]]
+        return [reversedName + item['path'][-1][dot_index:]]
 
 
 def lu_torrent(torrent):
