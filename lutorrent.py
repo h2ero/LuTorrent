@@ -69,7 +69,6 @@ def short_and_random(item):
     for i in badWord:
         reversedName = reversedName.replace(i.decode('utf8'), badWord[i].decode('utf8'));
     reversedName = reversedName.encode('utf8')
-    print reversedName
     if dot_index != -1:
         # no more folder just file
         return [reversedName + item['path'][-1][dot_index:]]
